@@ -14,25 +14,25 @@ import { AuthRegisterComponent } from '../auth-register/auth-register.component'
 export class AuthMenuButtonComponent implements OnInit {
 
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     public modalController: ModalController
     ) {}
 
-  async presentmodal(ev: any) {
+  async presentmodal(_ev: any) {
     const modal = await this.modalController.create({
       component: AuthMenuUserComponent,
     });
     return await modal.present();
   }
 
-  async presentLogin(ev: any) {
+  async presentLogin(_ev: any) {
     const modal = await this.modalController.create({
       component: AuthLoginComponent,
     });
     return await modal.present();
   }
 
-  async presentRegister(ev: any) {
+  async presentRegister(_ev: any) {
     const modal = await this.modalController.create({
       component: AuthRegisterComponent,
     });
