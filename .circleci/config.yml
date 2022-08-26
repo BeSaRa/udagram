@@ -46,7 +46,7 @@ jobs:
           name: print env variable
           command: |
             echo "Variables"
-            printenv
+            echo $AWS_ACCESS_KEY_ID
 
       - persist_to_workspace:
           root: .
