@@ -60,11 +60,8 @@ jobs:
       - attach_workspace:
           at: .
           # deploying api
-      - run: PWD
-#      - eb/deploy:
-#          app-dir: ./www/
-#          application-name: $AWS_EB_APP_NAME
-#          environment-name: $AWS_EB_ENV
+      - run:
+          npm run deploy
 
 workflows:
   workflow:
