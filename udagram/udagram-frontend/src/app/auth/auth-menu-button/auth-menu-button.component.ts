@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { AuthMenuUserComponent } from './auth-menu-user/auth-menu-user.component';
 
 import { AuthService } from '../services/auth.service';
 import { AuthLoginComponent } from '../auth-login/auth-login.component';
@@ -18,21 +17,14 @@ export class AuthMenuButtonComponent implements OnInit {
     public modalController: ModalController
     ) {}
 
-  async presentmodal(_ev: any) {
-    const modal = await this.modalController.create({
-      component: AuthMenuUserComponent,
-    });
-    return await modal.present();
-  }
-
-  async presentLogin(_ev: any) {
+  async presentLogin() {
     const modal = await this.modalController.create({
       component: AuthLoginComponent,
     });
     return await modal.present();
   }
 
-  async presentRegister(_ev: any) {
+  async presentRegister() {
     const modal = await this.modalController.create({
       component: AuthRegisterComponent,
     });
