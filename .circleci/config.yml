@@ -16,7 +16,6 @@ jobs:
       - node/install:
           node-version: '14.15'
       - checkout
-      - run: pwd
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
@@ -42,7 +41,6 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-      - run: ls
       - persist_to_workspace:
           root: .
           paths:
