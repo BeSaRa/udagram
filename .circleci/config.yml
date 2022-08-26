@@ -51,9 +51,6 @@ jobs:
     docker:
       - image: "cimg/base:stable"
       # more setup needed for aws, node, elastic beanstalk
-    parameters:
-      app-name: $AWS_EB_APP_NAME
-
     steps:
       - node/install:
           node-version: '14.15'
