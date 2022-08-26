@@ -42,12 +42,6 @@ jobs:
           command: |
             npm run api:build
 
-      - run:
-          name: print env variable
-          command: |
-            echo "Variables"
-            echo $AWS_ACCESS_KEY_ID
-
       - persist_to_workspace:
           root: .
           paths:
@@ -64,16 +58,11 @@ jobs:
       - aws-cli/setup
       - attach_workspace:
           at: .
+          # deploying api
       - run:
-          name: Deploy API
-          # TODO: deploy api
           command: |
-            npm run api:deploy
-          # TODO deploy front-end
-      - run:
-          name: Deploy Front-end
-          command: |
-            npm run frontend:deploy
+            printenv
+
 
 workflows:
   workflow:
