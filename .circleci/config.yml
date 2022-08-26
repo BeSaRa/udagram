@@ -42,7 +42,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-
+      - run: ls
       - persist_to_workspace:
           root: .
           paths:
