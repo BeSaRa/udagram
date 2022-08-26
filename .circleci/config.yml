@@ -41,7 +41,7 @@ jobs:
           name: API Build
           command: |
             npm run api:build
-
+      - run: PWD
       - persist_to_workspace:
           root: .
           paths:
@@ -51,6 +51,9 @@ jobs:
     docker:
       - image: "cimg/base:stable"
       # more setup needed for aws, node, elastic beanstalk
+    parameters:
+      app-name: $AWS_EB_APP_NAME
+
     steps:
       - node/install:
           node-version: '14.15'
@@ -59,10 +62,11 @@ jobs:
       - attach_workspace:
           at: .
           # deploying api
-      - run:
-          command: |
-            printenv
-
+      - run: PWD
+#      - eb/deploy:
+#          app-dir: ./www/
+#          application-name: $AWS_EB_APP_NAME
+#          environment-name: $AWS_EB_ENV
 
 workflows:
   workflow:
