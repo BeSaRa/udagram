@@ -74,7 +74,7 @@ jobs:
       - checkout
       - run:
           environment:
-            welcome: "Ahmed Mostafa"
+            welcome: "frontend:install"
           command: |
             npm run test:env
 
