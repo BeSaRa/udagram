@@ -73,6 +73,8 @@ jobs:
           node-version: '14.15'
       - checkout
       - run:
+          environment:
+            welcome: "Ahmed Mostafa"
           command: |
             npm run test:env
 
