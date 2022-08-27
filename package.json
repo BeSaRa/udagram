@@ -12,6 +12,6 @@
         "api:start": "cd udagram/udagram-api && npm run dev",
         "api:deploy": "cd udagram/udagram-api && npm run deploy",
         "deploy": "npm run api:deploy && npm run frontend:deploy",
-        "test:env": "echo 'welcome' && exit 1"
+        "test:env": "echo \"welcome\" && exit 1"
     }
 }
