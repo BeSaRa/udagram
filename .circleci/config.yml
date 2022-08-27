@@ -59,7 +59,15 @@ jobs:
           at: .
           # deploying api
       - run:
-          npm run deploy
+          name: Set Elastic Beanstalk Environment Variables
+          command: |
+            eb setenv APP_NAME=${AWS_EB_APP_NAME}
+      - run:
+          environment:
+            APP_NAME: $AWS_EB_APP_NAME
+            EB_ENV_NAME: $AWS_EB_ENV
+          command: |
+            npm run deploy
 
 workflows:
   workflow:
