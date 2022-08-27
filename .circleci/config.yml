@@ -7,91 +7,91 @@ orbs:
   # different jobs are called later in the workflows sections
 
 jobs:
-  #  build:
-  #    docker:
-  #      # the base image can run most needed actions with orbs
-  #      - image: "cimg/node:14.15"
-  #    steps:
-  #      # install node and checkout code
-  #      - node/install:
-  #          node-version: '14.15'
-  #      - checkout
-  #      # Use root level package.json to install dependencies in the frontend app
-  #      - run:
-  #          name: Install Front-End Dependencies
-  #          command: |
-  #            npm run frontend:install
-  #      # TODO: Install dependencies in the the backend API
-  #      - run:
-  #          name: Install API Dependencies
-  #          command: |
-  #            npm run api:install
-  #      # TODO: Lint the frontend
-  #      - run:
-  #          name: Front-End Lint
-  #          command: |
-  #            npm run frontend:lint
-  #      # TODO: Build the frontend app
-  #      - run:
-  #          name: Front-End Build
-  #          command: |
-  #            npm run frontend:build
-  #      # TODO: Build the backend API
-  #      - run:
-  #          name: API Build
-  #          command: |
-  #            npm run api:build
-  #      - persist_to_workspace:
-  #          root: .
-  #          paths:
-  #            - .
-  #            # deploy step will run only after manual approval
-  #  deploy:
-  #    docker:
-  #      - image: "cimg/base:stable"
-  #      # more setup needed for aws, node, elastic beanstalk
-  #    steps:
-  #      - node/install:
-  #          node-version: '14.15'
-  #      - eb/setup
-  #      - aws-cli/setup
-  #      - attach_workspace:
-  #          at: .
-  #      - run:
-  #          environment:
-  #            APP_NAME: $AWS_EB_APP_NAME
-  #            EB_ENV_NAME: $AWS_EB_ENV
-  #            REGION: $AWS_DEFAULT_REGION
-  #          # deploying api
-  #          command: |
-  #            npm run deploy
-
-  test:
+  build:
     docker:
-      - image: "cimg/base:stable"
+      # the base image can run most needed actions with orbs
+      - image: "cimg/node:14.15"
     steps:
+      # install node and checkout code
       - node/install:
           node-version: '14.15'
       - checkout
+      # Use root level package.json to install dependencies in the frontend app
+      - run:
+          name: Install Front-End Dependencies
+          command: |
+            npm run frontend:install
+      # TODO: Install dependencies in the the backend API
+      - run:
+          name: Install API Dependencies
+          command: |
+            npm run api:install
+      # TODO: Lint the frontend
+      - run:
+          name: Front-End Lint
+          command: |
+            npm run frontend:lint
+      # TODO: Build the frontend app
+      - run:
+          name: Front-End Build
+          command: |
+            npm run frontend:build
+      # TODO: Build the backend API
+      - run:
+          name: API Build
+          command: |
+            npm run api:build
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+            # deploy step will run only after manual approval
+  deploy:
+    docker:
+      - image: "cimg/base:stable"
+      # more setup needed for aws, node, elastic beanstalk
+    steps:
+      - node/install:
+          node-version: '14.15'
+      - eb/setup
+      - aws-cli/setup
+      - attach_workspace:
+          at: .
       - run:
           environment:
-            REGION: $AWS_EB_APP_NAME
+            APP_NAME: $AWS_EB_APP_NAME
+            EB_ENV_NAME: $AWS_EB_ENV
+            REGION: $AWS_DEFAULT_REGION
+          # deploying api
           command: |
-            npm run test:env
+            npm run deploy
+
+#  test:
+#    docker:
+#      - image: "cimg/base:stable"
+#    steps:
+#      - node/install:
+#          node-version: '14.15'
+#      - checkout
+#      - run:
+#          environment:
+#            REGION: $AWS_EB_APP_NAME
+#          command: |
+#            npm run test:env
 
 workflows:
   workflow:
     jobs:
-      - test
-#      - build
-#      - hold:
-#          filters:
-#            branches:
-#              only:
-#                - master
-#          type: approval
-#          requires:
-#            - build
-#      - deploy:
-#          requires:
-#            - hold
+      #      - test
+      - build
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
