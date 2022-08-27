@@ -65,6 +65,10 @@ app
 
 ![AWS RDS](images/rds.png "RDS")
 
+### Application URL on AWS 
+
+`http://ahmedbesara.s3-website-us-east-1.amazonaws.com/#/home`
+
 ### Built With
 
 - [Angular](https://angular.io/) - Single Page Application Framework
