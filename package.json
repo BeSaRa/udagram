@@ -12,7 +12,7 @@
     "api:start": "cd udagram/udagram-api && npm run dev",
     "api:deploy": "cd udagram/udagram-api && eb init app && eb list && npm run deploy",
     "deploy": "npm run api:deploy && npm run frontend:deploy",
-    "test:test": "npm run $(eval $MY_REGION)",
-    "test:env": "export MY_REGION=$(eval echo ${AWS_EB_APP_NAME}) && npm run test:test"
+    "test:test": "npm run $(eval echo ${AWS_EB_APP_NAME})",
+    "test:env": "npm run test:test"
   }
 }
