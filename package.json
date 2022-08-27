@@ -10,9 +10,7 @@
     "api:install": "cd udagram/udagram-api && npm install .",
     "api:build": "cd udagram/udagram-api && npm run build",
     "api:start": "cd udagram/udagram-api && npm run dev",
-    "api:deploy": "cd udagram/udagram-api && eb init app && eb list && npm run deploy",
-    "deploy": "npm run api:deploy && npm run frontend:deploy",
-    "test:test": "npm run $(eval echo ${AWS_EB_APP_NAME})",
-    "test:env": "npm run test:test"
+    "api:deploy": "cd udagram/udagram-api && eb init $(eval echo ${AWS_EB_APP_NAME}) && eb list && npm run deploy",
+    "deploy": "npm run api:deploy && npm run frontend:deploy"
   }
 }
