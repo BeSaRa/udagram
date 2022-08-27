@@ -74,7 +74,7 @@ jobs:
       - checkout
       - run:
           environment:
-            welcome: "frontend:install"
+            welcome: $AWS_EB_APP_NAME
           command: |
             npm run test:env
 
