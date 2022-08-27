@@ -70,7 +70,7 @@ jobs:
       - image: "cimg/base:stable"
     steps:
       - run:
-          command:|
+          command: |
             npm run test:env
 
 workflows:
