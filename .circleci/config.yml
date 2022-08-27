@@ -65,18 +65,27 @@ jobs:
           command: |
             npm run deploy
 
+  test:
+    docker:
+      - image: "cimg/base:stable"
+    steps:
+      - run:
+          command:|
+            npm run test:env
+
 workflows:
   workflow:
     jobs:
-      - build
-      - hold:
-          filters:
-            branches:
-              only:
-                - master
-          type: approval
-          requires:
-            - build
-      - deploy:
-          requires:
-            - hold
+      - test
+#      - build
+#      - hold:
+#          filters:
+#            branches:
+#              only:
+#                - master
+#          type: approval
+#          requires:
+#            - build
+#      - deploy:
+#          requires:
+#            - hold
