@@ -54,24 +54,24 @@ app
 
 ### Application Architecture
 
-![this is application components](images/archtiechture.png "Application Architecture")
+![this is application components](screenshots/archtiechture.png "Application Architecture")
 
 ### Components screenshots
 
 #### AWS S3
 
-![AWS S3](images/s3.png "S3")
+![AWS S3](screenshots/s3.png "S3")
 
 ### AWS Elastic Beanstalk
 
-![AWS EB](images/eb.png "EB")
+![AWS EB](screenshots/eb.png "EB")
 
 ### AWS RDS
 
-![AWS RDS](images/rds.png "RDS")
+![AWS RDS](screenshots/rds.png "RDS")
 
 ### CircleCi 
-![CircleCi](images/circleci.png "CircleCi")
+![CircleCi](screenshots/circleci.png "CircleCi")
 
 ### Built With
 
