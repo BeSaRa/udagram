@@ -4,6 +4,11 @@
 
 it is cloud based Application, to practice what I have learned in the course using circle CI/CD and Amazon Web Services
 
+
+### Application URL on AWS
+
+`http://ahmedbesara.s3-website-us-east-1.amazonaws.com/#/home`
+
 ### installation
 
 clone the repo then follow the below instructions to install app dependencies
@@ -65,9 +70,8 @@ app
 
 ![AWS RDS](images/rds.png "RDS")
 
-### Application URL on AWS 
-
-`http://ahmedbesara.s3-website-us-east-1.amazonaws.com/#/home`
+### CircleCi 
+![CircleCi](images/circleci.png "CircleCi")
 
 ### Built With
 
