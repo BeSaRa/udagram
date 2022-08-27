@@ -65,32 +65,32 @@ jobs:
           command: |
             npm run deploy
 
-  test:
-    docker:
-      - image: "cimg/base:stable"
-    steps:
-      - node/install:
-          node-version: '14.15'
-      - checkout
-      - run:
-          environment:
-            welcome: $AWS_EB_APP_NAME
-          command: |
-            npm run test:env
+#  test:
+#    docker:
+#      - image: "cimg/base:stable"
+#    steps:
+#      - node/install:
+#          node-version: '14.15'
+#      - checkout
+#      - run:
+#          environment:
+#            welcome: $AWS_EB_APP_NAME
+#          command: |
+#            npm run test:env
 
 workflows:
   workflow:
     jobs:
-      - test
-#      - build
-#      - hold:
-#          filters:
-#            branches:
-#              only:
-#                - master
-#          type: approval
-#          requires:
-#            - build
-#      - deploy:
-#          requires:
-#            - hold
+      #      - test
+      - build
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
