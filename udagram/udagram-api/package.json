@@ -9,7 +9,7 @@
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "eb init $(eval ${AWS_EB_APP_NAME}) && eb list && eb use $(eval ${AWS_EB_ENV}) && eb deploy",
+    "deploy": "eb init ${AWS_EB_APP_NAME} --region ${AWS_DEFAULT_REGION} && eb list && eb use ${AWS_EB_ENV} && eb deploy",
     "build": "npm install . && npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
