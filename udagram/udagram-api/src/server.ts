@@ -1,6 +1,4 @@
 import * as dotenv from "dotenv";
-
-dotenv.config();
 import cors from 'cors';
 import express from "express";
 import { sequelize } from "./sequelize";
@@ -10,9 +8,16 @@ import { IndexRouter } from "./controllers/v0/index.router";
 import bodyParser from "body-parser";
 import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
 
+dotenv.config();
+
 (async (): Promise<void> => {
   const app = express();
   const port = process.env.PORT || 8080;
+
+  await sequelize.addModels(V0_FEED_MODELS);
+  await sequelize.addModels(V0_USER_MODELS);
+  await sequelize.sync();
+  console.log("Database Connected");
 
   app.use(bodyParser.json());
 
@@ -44,9 +49,5 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from "./controllers/v0/model.index";
     console.log(`Backend server is listening on port ${port}....`);
     console.log(`Frontent server running ${process.env.URL}`);
     console.log(`press CTRL+C to stop server`);
-    await sequelize.addModels(V0_FEED_MODELS);
-    await sequelize.addModels(V0_USER_MODELS);
-    await sequelize.sync();
-    console.log("Database Connected");
   });
 })()
