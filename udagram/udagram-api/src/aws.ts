@@ -6,6 +6,10 @@ import { config } from "./config/config";
 export const s3 = new AWS.S3({
   signatureVersion: "v4",
   region: config.aws_region,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  }
 });
 
 // Generates an AWS signed URL for retrieving objects
@@ -13,7 +17,7 @@ export function getGetSignedUrl(key: string): string {
   const signedUrlExpireSeconds = 60 * 5;
   return s3.getSignedUrl("getObject", {
     Bucket: config.aws_media_bucket,
-    Key: 'uploads/' + key,
+    Key: key,
     Expires: signedUrlExpireSeconds,
   });
 }
@@ -21,10 +25,9 @@ export function getGetSignedUrl(key: string): string {
 // Generates an AWS signed URL for uploading objects
 export function getPutSignedUrl(key: string): string {
   const signedUrlExpireSeconds = 60 * 5;
-
   return s3.getSignedUrl("putObject", {
     Bucket: config.aws_media_bucket,
-    Key: 'uploads/' + key,
+    Key: key,
     Expires: signedUrlExpireSeconds,
   });
 }
