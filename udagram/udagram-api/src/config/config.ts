@@ -12,6 +12,10 @@ export const config = {
   // eslint-disable-next-line @typescript-eslint/camelcase
   aws_media_bucket: process.env.AWS_BUCKET,
   url: process.env.URL,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  },
   jwt: {
     secret: process.env.JWT_SECRET,
   },
