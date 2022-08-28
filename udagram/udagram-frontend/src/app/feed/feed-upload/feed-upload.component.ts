@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FeedProviderService } from '../services/feed.provider.service';
 
 import { LoadingController, ModalController } from '@ionic/angular';
@@ -62,6 +62,6 @@ export class FeedUploadComponent implements OnInit {
   }
 
   cancel() {
-    this.modalController.dismiss();
+    this.modalController.dismiss().then();
   }
 }
