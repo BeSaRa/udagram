@@ -4,7 +4,11 @@ import { config } from "./config/config";
 //Credentials are auto set according to the documentation https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html and the default profile is "Default anyway"
 export const s3 = new AWS.S3({
   signatureVersion: "v4",
-  region: config.aws_region
+  region: config.aws_region,
+  credentials: {
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  }
 });
 
 // Generates an AWS signed URL for retrieving objects
