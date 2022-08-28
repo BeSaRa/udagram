@@ -59,7 +59,7 @@ export class ApiService {
     const headers = new HttpHeaders({ 'Content-Type': file.type });
     const req = new HttpRequest('PUT', signed_url, file,
       {
-        headers: headers,
+        headers: headers.append('Authorization', this.httpOptions.headers.get('Authorization')),
         reportProgress: true, // track progress
       });
 
