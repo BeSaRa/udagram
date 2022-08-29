@@ -40,6 +40,6 @@ below screenshots from application components on AWS
 
 ### CircleCi
 
-![CircleCi](../screenshots/circleci.png "CircleCi")
+![CircleCi](../screenshots/circleci-status.png "CircleCi")
 
 **[back](../README.md)**

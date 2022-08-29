@@ -21,8 +21,10 @@ Here is diagram for my Pipeline Process for this application
 6. **Production environment:** her we can see our hard work :) the application deployed and users can interact with it.
 
 below screenshot from the latest build on CircleCi
+![CircleCi](../screenshots/circleci-status.png "CircleCi Status")
 
-
+CircleCi secrets
+![CircleCi](../screenshots/secrets.png "CircleCi Status")
 
 [back](../README.md)
 
