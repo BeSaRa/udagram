@@ -14,15 +14,18 @@ There are 3 services from AWS and CircleCI to automate deployment process, to ma
 ![Infrastructure](../screenshots/archtiechture.png "Application Infrastructure")
 
 ### User Flow
+
 As you can see in the above diagram the user will open the application link in his browser and **AWS S3** will serve the
 frontend app,
 which can user interact with it, for example to register or add a new feed item the app will make request for the
 backend that already hosted in
 **AWS EB** Which in turn sends the data to be saved in **AWS RDS** which responsible for saving the data that came from
-the user also **AWS EB** can ask **AWS RDS** for data to retrieve it display it for the user like the feed items  
+the user also **AWS EB** can ask **AWS RDS** for data to retrieve it display it for the user like the feed items
 
 ### App Components Screenshots
+
 below screenshots from application components on AWS
+
 #### AWS S3
 
 ![AWS S3](../screenshots/s3.png "S3")
