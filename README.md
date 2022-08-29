@@ -4,10 +4,17 @@
 
 it is cloud based Application, to practice what I have learned in the course using circle CI/CD and Amazon Web Services
 
+### Application
 
-### Application URL on AWS
+here is the Application URL on AWS [click here](http://besara.s3-website-us-east-1.amazonaws.com/#/home)
 
-`http://ahmedbesara.s3-website-us-east-1.amazonaws.com/#/home`
+### documentations
+
+kindly check the below documentations for more info about the app
+
+* [Infrastructure description](docs/INFRASTRUCTURE.md)
+* [App dependencies](docs/APP_DEPENDENCIES.md)
+* [Pipeline process](docs/PIPELINE_PROCESS.md)
 
 ### installation
 
@@ -51,27 +58,6 @@ app
 |------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | udagram-api (API)            | go to udagram-api then `npm install ` or `yarn` You can access through this link `http://localhost:8080` just to make sure it is working           | change the port in case if you override the port number in `.env` file                                                                         |
 | udagram-frontend (Front-end) | go to udagram-frontend then `npm install ` or `yarn` after that you can access the `http://localohst:4200` and start interact with the application | default port is `4200` but if it is busy for some reason check the terminal and you will find the full url with the new port to access the app |
-
-### Application Architecture
-
-![this is application components](screenshots/archtiechture.png "Application Architecture")
-
-### Components screenshots
-
-#### AWS S3
-
-![AWS S3](screenshots/s3.png "S3")
-
-### AWS Elastic Beanstalk
-
-![AWS EB](screenshots/eb.png "EB")
-
-### AWS RDS
-
-![AWS RDS](screenshots/rds.png "RDS")
-
-### CircleCi 
-![CircleCi](screenshots/circleci.png "CircleCi")
 
 ### Built With
 
